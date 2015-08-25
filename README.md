@@ -7,6 +7,8 @@ Well, some of the google map features that accept custom html allow you to pass 
 So backbone... Who knew that you could assign a javascript dom element to the `el` property of a backbone view?! This plays really nicely with google maps as you can use all the features of google maps and still have the ability to re-render your view on changes to your data!
 
 ## Setup
+This setup process assumes you have [Node.js](https://nodejs.org/) (v0.10.* or higher) installed on your machine.
+
 ### Install
 ```
 git clone git@github.com:rahulpatel/flick-map.git
