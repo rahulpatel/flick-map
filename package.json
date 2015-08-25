@@ -1,0 +1,60 @@
+{
+  "name": "flick-map",
+  "version": "1.0.0",
+  "description": "Search geotagged Flickr images and show them on a Google Map",
+  "main": "src/app/index.js",
+  "scripts": {
+    "postinstall": "mkdir -p ./www ./www_test",
+
+    "prestart": "npm run build",
+    "start": "cd ./www && python -m SimpleHTTPServer",
+    "poststart": "cd ../",
+
+    "pretest": "npm run build-tests",
+    "test": "open www_test/test.html",
+
+    "lint": "eslint src/app/**/*.js",
+
+    "watch-test": "watchify test/setup.js -o www_test/bundle.js -dv",
+    "watch-test-html": "catw -w test/test.html -o www_test/test.html -v",
+    "watch-css": "catw -c 'lessc -' 'src/styles/*.less' -o www/bundle.css -v",
+    "watch-js": "watchify src/app/index.js -o www/bundle.js -dv",
+    "watch-html": "catw -w src/index.html -o www/index.html -v",
+    "watch": "npm run watch-test & npm run watch-test-html & npm run watch-css & npm run watch-js & npm run watch-html",
+
+    "build-tests": "browserify test/setup.js -o www_test/bundle.js && cp test/test.html www_test/",
+    "build-css": "lessc src/styles/*.less > www/bundle.css",
+    "build-js": "browserify src/app/index.js > www/bundle.js",
+    "build-html": "cp src/index.html www/",
+    "build": "npm run build-css && npm run build-js && npm run build-html"
+  },
+  "author": "Rahul Patel <rahulpatel477@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rahulpatel/flick-map.git"
+  },
+  "engines": {
+    "node": ">=0.10"
+  },
+  "dependencies": {
+    "babel": "^5.8.21",
+    "backbone": "^1.2.2",
+    "jquery": "^2.1.4"
+  },
+  "devDependencies": {
+    "babelify": "^6.2.0",
+    "browserify": "~2.36.1",
+    "catw": "^1.0.1",
+    "eslint": "^1.2.1",
+    "less": "^2.5.1",
+    "mocha": "^2.2.5",
+    "sinon": "^1.16.1",
+    "watchify": "~0.4.1"
+  },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  }
+}
