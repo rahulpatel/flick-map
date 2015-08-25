@@ -31,6 +31,7 @@ npm test
 * Add support for jsdom or phantomjs to allow running tests via terminal
 * Find a better way to stub the Google Maps API
 * Add selenium tests
+* Add travis to run tests on commit/pr/merge
 
 ### Tech debt
 * Move configuration into config file (api keys, base urls, etc.)
