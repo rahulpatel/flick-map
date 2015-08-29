@@ -17,10 +17,13 @@ npm install # it may look like the process has locked up on node v0.12, just wai
 ```
 
 ### Runing the app
+* Generate an API key for [Flickr](https://www.flickr.com/services/apps/create/apply) and [Google Maps](https://console.developers.google.com/project).
+* Replace `'<YOUR API KEY>'` in `src/app/config.js` with your Flickr API key
+* Replace `'<YOUR API KEY>'` in `src/index.html` with your Google Maps API key
 ```
 npm start
 ```
-Visit http://localhost:8000
+* Visit http://localhost:8000
 
 ### Running the tests
 ```

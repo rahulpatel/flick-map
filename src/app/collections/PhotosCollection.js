@@ -1,11 +1,12 @@
 import { Collection } from 'backbone';
+import { flickr } from '../config';
 import MapsAPI from  '../lib/MapsAPI';
 import Photo from '../models/Photo';
 
 export default class PhotosCollection extends Collection {
 
   url() {
-    return `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=e85e2d1e5671c46da6cab43916bdadfa&format=json&nojsoncallback=1&has_geo=1&extras=geo&text=${this.getSearchTerm()}`;
+    return `${flickr.base}?method=flickr.photos.search&api_key=${flickr.key}&format=json&nojsoncallback=1&has_geo=1&extras=geo&text=${this.getSearchTerm()}`;
   }
 
   fetch(term) {
